@@ -76,6 +76,8 @@
     export let noOptionsMessage = 'No options';
     export let hideEmptyState = false;
     export let inputAttributes = {};
+    export let name = undefined;
+    export let getHiddenInputValue = getSelectionLabel;
     export let listAutoWidth = true;
     export let itemHeight = 40;
     export let Icon = undefined;
@@ -973,19 +975,19 @@
             on:closeList={closeList} />
     {/if}
 
-    {#if !isMulti || (isMulti && !showMultiSelect)}
+    {#if name && (!isMulti || (isMulti && !showMultiSelect))}
         <input
-            name={inputAttributes.name}
+            name={name}
             type="hidden"
-            value={value ? getSelectionLabel(value) : null} />
+            value={value ? getHiddenInputValue(value) : null} />
     {/if}
 
-    {#if isMulti && showMultiSelect}
+    {#if name && (isMulti && showMultiSelect)}
         {#each value as item}
             <input
-                name={inputAttributes.name}
+                name={name}
                 type="hidden"
-                value={item ? getSelectionLabel(item) : null} />
+                value={item ? getHiddenInputValue(item) : null} />
         {/each}
     {/if}
 </div>

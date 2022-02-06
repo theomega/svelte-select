@@ -19,9 +19,7 @@
   },
   "devDependencies": {
     "@babel/polyfill": "7.12.1",
-    "@playwright/test": "1.12.3",
     "find-in-files": "^0.5.0",
-    "playwright-chromium": "1.12.3",
     "port-authority": "^1.0.5",
     "puppeteer": "^1.9.0",
     "rollup": "^2.41.2",
